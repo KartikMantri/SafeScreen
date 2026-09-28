@@ -93,7 +93,7 @@ flowchart LR
 
 ```bash
 # 1. on-device runtimes (ONNX Runtime, Transformers.js, MediaPipe, Tesseract)
-cd prototype
+git clone https://github.com/KartikMantri/SafeScreen.git && cd SafeScreen
 npm install
 npm run vendor
 
@@ -104,7 +104,7 @@ cp .env.example .env          # VLM_PROVIDER=mock works offline; set anthropic +
 uvicorn app.main:app --port 8000
 ```
 
-3. **Load the extension:** `chrome://extensions` → **Developer mode** → **Load unpacked** → select `prototype/extension`.
+3. **Load the extension:** `chrome://extensions` → **Developer mode** → **Load unpacked** → select the `extension` folder.
 4. Open **http://localhost:8000/portal/**, click the SafeScreen toolbar icon, wait until the four models say **ready**, pick a sample task and press **Run agent**.
 5. Approve each action on the consent card that appears on the page.
 
@@ -146,7 +146,7 @@ End-to-end screenshots and the exact outgoing payload land in `tests/out/`.
 ## 🗂️ Project layout
 
 ```
-prototype/
+SafeScreen/
 ├── extension/          Chrome MV3 extension — side panel, content script, on-device detectors, models
 ├── gateway/            FastAPI gateway + VLM providers (anthropic · openai_compat · mock)
 ├── portal/             mock ISRO Employee Services Portal (synthetic data)

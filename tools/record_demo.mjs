@@ -1,6 +1,6 @@
 // Records the live prototype for the demo video.
 //   gateway must be running on :8000
-//   node tools/record_demo.mjs  ->  ../video/build/demo/{portal,panel}/*.jpg + events.json
+//   node tools/record_demo.mjs  ->  video/build/demo/{portal,panel}/*.jpg + events.json
 // The portal page and the side panel are captured as separate streams (CDP screencast)
 // and composited side by side later by video/build.mjs.
 import puppeteer from "puppeteer";
@@ -9,7 +9,7 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const out = resolve(root, "..", "video", "build", "demo");
+const out = resolve(root, "video", "build", "demo");
 rmSync(out, { recursive: true, force: true });
 mkdirSync(join(out, "portal"), { recursive: true });
 mkdirSync(join(out, "panel"), { recursive: true });

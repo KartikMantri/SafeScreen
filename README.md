@@ -13,7 +13,7 @@ Ministry: ISRO / Department of Space · Theme: Smart Automation · Team **Mentor
 ![DPDP](https://img.shields.io/badge/DPDP%20Act%202023-data%20minimisation-6A1B9A)
 ![Tests](https://img.shields.io/badge/tests-unit%20%2B%20e2e-1565C0)
 
-**[▶ Watch the demo video](#-demo-video)** · [How it works](#-how-it-works) · [Run it](#-run-it) · [Demo scenarios](#-demo-scenarios) · [Tests](#-tests)
+**[▶ Watch the demo video](https://youtu.be/fVMVtD7gi34)** · [How it works](#-how-it-works) · [Run it](#-run-it) · [Demo scenarios](#-demo-scenarios) · [Tests](#-tests)
 
 </div>
 
@@ -21,8 +21,14 @@ Ministry: ISRO / Department of Space · Theme: Smart Automation · Team **Mentor
 
 ## 🎬 Demo video
 
-> **📺 Video: _coming soon_** — `<!-- VIDEO_LINK: paste the YouTube / Drive link here -->`
->
+<div align="center">
+
+[![SafeScreen demo video on YouTube](https://img.youtube.com/vi/fVMVtD7gi34/maxresdefault.jpg)](https://youtu.be/fVMVtD7gi34)
+
+**[▶ Watch on YouTube](https://youtu.be/fVMVtD7gi34)**
+
+</div>
+
 > 5-minute walkthrough: the problem, the technical approach, and the live prototype registering a visitor on a (mock) SDSC SHAR Launch View Gallery portal — while the cloud only ever sees black boxes.
 
 ---

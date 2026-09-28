@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RESPOND - Proposal Submission | ISRO (Prototype Demo)</title>
+  <link rel="stylesheet" href="css/portal.css">
+</head>
+<body>
+  <div class="tricolor"></div>
+  <div class="demo">PROTOTYPE DEMO ENVIRONMENT for SafeScreen (SIH 2026 · PS 26171). Synthetic data only - not an official ISRO system.</div>
+  <header class="site">
+    <div class="in">
+      <div class="mark">ISRO</div>
+      <div class="org">
+        <div class="hi">अनुसंधान प्रायोजित कार्यक्रम</div>
+        <div class="en">RESPOND - Sponsored Research</div>
+        <div class="app">Capacity Building Programme Office · ISRO HQ</div>
+      </div>
+      <div class="user"><a href="index.html" style="color:#FFD29E">← Employee dashboard</a></div>
+    </div>
+  </header>
+  <nav class="crumbs">Home › Services › RESPOND › Proposal RES-2027-0142</nav>
+  <main>
+    <h1>Proposal submission - PI and bank details</h1>
+    <div class="steps"><span>1 · Proposal</span><span>2 · Budget</span><span class="on">3 · PI &amp; bank</span><span>4 · Review</span></div>
+    <form class="panel" data-receipt="RESPOND" novalidate>
+      <div class="receipt"></div>
+      <div class="error"></div>
+      <div class="field">
+        <label for="title">Proposal title</label>
+        <input id="title" name="title" value="Onboard machine learning for cloud masking in EOS-N1 imagery" readonly>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="pi_name">Principal investigator</label>
+          <input id="pi_name" name="pi_name" value="Dr. Kavya Nair" readonly>
+        </div>
+        <div class="field">
+          <label for="institution">Institution</label>
+          <input id="institution" name="institution" value="Indian Institute of Technology Madras" readonly>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="pi_email">PI email</label>
+          <input id="pi_email" name="pi_email" type="email" value="kavya.nair@iitm.demo" readonly>
+        </div>
+        <div class="field">
+          <label for="pi_phone">PI mobile</label>
+          <input id="pi_phone" name="pi_phone" type="tel" value="9445512345" readonly>
+        </div>
+      </div>
+      <h2 style="margin-top:8px">Institution bank account for grant release</h2>
+      <div class="row">
+        <div class="field">
+          <label for="account_number">Bank account number <span class="req">*</span></label>
+          <input id="account_number" name="account_number" inputmode="numeric" required>
+        </div>
+        <div class="field">
+          <label for="ifsc">IFSC code <span class="req">*</span></label>
+          <input id="ifsc" name="ifsc" required maxlength="11" style="text-transform:uppercase">
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="budget">Total budget requested (₹ lakh)</label>
+          <input id="budget" name="budget" value="38.50" readonly>
+        </div>
+        <div class="field">
+          <label for="duration">Duration (months)</label>
+          <input id="duration" name="duration" value="24" readonly>
+        </div>
+      </div>
+      <div class="field">
+        <label class="check"><input type="checkbox" id="certify" name="certify" required> The head of institution has approved this proposal and the bank account belongs to the institution.</label>
+      </div>
+      <button class="btn" type="submit">Submit proposal</button>
+    </form>
+  </main>
+  <footer>Mock portal built for the SafeScreen prototype. All names, numbers and photos are synthetic.</footer>
+  <script src="js/portal.js"></script>
+</body>
+</html>

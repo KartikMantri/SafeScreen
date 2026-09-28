@@ -1,0 +1,13 @@
+node_modules/
+extension/vendor/
+extension/models/yolo_idcard.onnx.tmp
+training/.venv/
+training/yolo_dataset/
+training/runs/
+tests/out/
+gateway/.env
+__pycache__/
+*.pyc
+training_log.txt
+gateway_log.txt
+yolo11n.pt

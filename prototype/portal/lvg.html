@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Launch View Gallery - Visitor Registration | SDSC SHAR (Prototype Demo)</title>
+  <link rel="stylesheet" href="css/portal.css">
+</head>
+<body>
+  <div class="tricolor"></div>
+  <div class="demo">PROTOTYPE DEMO ENVIRONMENT for SafeScreen (SIH 2026 · PS 26171). Synthetic data only - not an official ISRO system.</div>
+  <header class="site">
+    <div class="in">
+      <div class="mark">ISRO</div>
+      <div class="org">
+        <div class="hi">सतीश धवन अंतरिक्ष केंद्र शार</div>
+        <div class="en">Satish Dhawan Space Centre SHAR</div>
+        <div class="app">Launch View Gallery · Visitor Registration</div>
+      </div>
+      <div class="user"><a href="index.html" style="color:#FFD29E">← Employee dashboard</a></div>
+    </div>
+  </header>
+  <nav class="crumbs">Home › Services › Launch View Gallery</nav>
+  <main>
+    <h1>Register to watch a launch from the Launch View Gallery</h1>
+    <form class="panel" data-receipt="LVG" novalidate>
+      <div class="receipt"></div>
+      <div class="error"></div>
+      <div class="row">
+        <div class="field">
+          <label for="full_name">Full name (as on ID proof) <span class="req">*</span></label>
+          <input id="full_name" name="full_name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="mobile">Mobile number <span class="req">*</span></label>
+          <input id="mobile" name="mobile" type="tel" autocomplete="tel" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="launch">Launch <span class="req">*</span></label>
+          <select id="launch" name="launch" required>
+            <option value="">- Select a launch -</option>
+            <option value="pslv-c62">PSLV-C62 / EOS-N1 - 12 Jan 2027</option>
+            <option value="gslv-f17">GSLV-F17 / NVS-03 - 04 Feb 2027</option>
+            <option value="lvm3-m7">LVM3-M7 / BlueBird-7 - 21 Mar 2027</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="id_type">ID proof type <span class="req">*</span></label>
+          <select id="id_type" name="id_type" required>
+            <option value="pan">PAN card</option>
+            <option value="aadhaar">Aadhaar</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="pan_number">PAN number <span class="req">*</span></label>
+          <input id="pan_number" name="pan_number" required maxlength="10" style="text-transform:uppercase">
+        </div>
+      </div>
+      <div class="field">
+        <label for="id_proof">Upload ID proof (image, max 2 MB) <span class="req">*</span></label>
+        <div class="upload">
+          <figure data-safescreen-uploaded>
+            <img id="id_preview" src="img/pan_card_synthetic.png" width="340" alt="Uploaded ID proof">
+            <figcaption>Uploaded: pan_card.png</figcaption>
+          </figure>
+          <figure>
+            <img src="img/visitor_photo.jpg" width="120" height="144" alt="Visitor photograph">
+            <figcaption>Visitor photograph</figcaption>
+          </figure>
+          <div style="flex:1"><input id="id_proof" name="id_proof" type="file" accept="image/*" data-max-bytes="2097152" data-preview="id_preview"></div>
+        </div>
+      </div>
+      <div class="field">
+        <label class="check"><input type="checkbox" id="declaration" name="declaration" required> I declare that the details are correct and I will carry the original ID proof to the gallery.</label>
+      </div>
+      <button class="btn" type="submit">Submit registration</button>
+    </form>
+  </main>
+  <footer>Mock portal built for the SafeScreen prototype. All names, numbers and photos are synthetic.</footer>
+  <script src="js/portal.js"></script>
+</body>
+</html>

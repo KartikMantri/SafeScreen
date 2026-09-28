@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ISRO Single Sign-On (Prototype Demo)</title>
+  <link rel="stylesheet" href="css/portal.css">
+</head>
+<body>
+  <div class="tricolor"></div>
+  <div class="demo">PROTOTYPE DEMO ENVIRONMENT for SafeScreen (SIH 2026 · PS 26171). Synthetic data only - not an official ISRO system.</div>
+  <header class="site">
+    <div class="in">
+      <div class="mark">ISRO</div>
+      <div class="org">
+        <div class="hi">एकल साइन-ऑन</div>
+        <div class="en">ISRO Single Sign-On</div>
+        <div class="app">Restricted services re-authentication</div>
+      </div>
+      <div class="user"><a href="index.html" style="color:#FFD29E">← Employee dashboard</a></div>
+    </div>
+  </header>
+  <main style="max-width:480px">
+    <h1>Sign in</h1>
+    <form class="panel" data-receipt="SSO" novalidate>
+      <div class="receipt"></div>
+      <div class="error"></div>
+      <div class="field">
+        <label for="employee_id">Employee ID <span class="req">*</span></label>
+        <input id="employee_id" name="employee_id" autocomplete="username" required>
+      </div>
+      <div class="field">
+        <label for="password">Password <span class="req">*</span></label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required>
+      </div>
+      <div class="field">
+        <label for="otp">One-time password sent to your registered mobile <span class="req">*</span></label>
+        <input id="otp" name="otp" inputmode="numeric" autocomplete="one-time-code" maxlength="6" required>
+      </div>
+      <button class="btn" type="submit">Sign in</button>
+    </form>
+  </main>
+  <footer>Mock portal built for the SafeScreen prototype.</footer>
+  <script src="js/portal.js"></script>
+</body>
+</html>

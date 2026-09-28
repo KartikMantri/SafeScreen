@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SafeScreen - ISRO Workspace Agent</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <div class="logo">S</div>
+      <div>
+        <div class="name">SafeScreen</div>
+        <div class="sub">ISRO Workspace Agent · PS 26171</div>
+      </div>
+    </div>
+    <span class="rt" id="runtime" title="On-device inference backend">…</span>
+  </header>
+
+  <section class="workspace" id="workspace">Checking tab…</section>
+
+  <section class="card">
+    <label class="k" for="goal">Your task</label>
+    <textarea id="goal" rows="3" placeholder="e.g. Register me for the Launch View Gallery for PSLV-C62. My PAN is BQJPI4821K and mobile 9812345670."></textarea>
+    <div class="chips" id="samples"></div>
+    <div class="actions">
+      <button id="run" class="primary">Run agent</button>
+      <button id="stop" class="ghost" disabled>Stop</button>
+    </div>
+    <div class="sanitized hidden" id="sanitized"></div>
+  </section>
+
+  <section class="card">
+    <div class="row-between"><span class="k">On-device models</span><span class="iter" id="iter"></span></div>
+    <div class="models">
+      <div class="model" data-model="ner"><b>NER</b><span>DistilBERT</span><i></i></div>
+      <div class="model" data-model="ocr"><b>OCR</b><span>Tesseract</span><i></i></div>
+      <div class="model" data-model="face"><b>Face</b><span>BlazeFace</span><i></i></div>
+      <div class="model" data-model="yolo"><b>YOLO</b><span>ID cards</span><i></i></div>
+    </div>
+  </section>
+
+  <section class="card pipeline">
+    <div class="band b1">01 · DATA CAPTURE &amp; DOM INSPECTION</div>
+    <div class="step" data-step="s1"><em>1</em><div><b>User goal + prompt PII check</b><small></small></div><span></span></div>
+    <div class="step" data-step="s2"><em>2</em><div><b>Capture screen state</b><small></small></div><span></span></div>
+
+    <div class="band b2">02 · DETECT &amp; IDENTIFY</div>
+    <div class="step" data-step="s3"><em>3</em><div><b>Six parallel layers</b><small></small></div><span></span></div>
+    <div class="layers">
+      <div class="layer" data-layer="L1"><b>L1</b> DOM<span></span></div>
+      <div class="layer" data-layer="L2"><b>L2</b> Regex<span></span></div>
+      <div class="layer" data-layer="L3a"><b>L3a</b> NER<span></span></div>
+      <div class="layer" data-layer="L3b"><b>L3b</b> OCR<span></span></div>
+      <div class="layer" data-layer="L4"><b>L4</b> Face<span></span></div>
+      <div class="layer" data-layer="L5"><b>L5</b> YOLO<span></span></div>
+    </div>
+    <div class="step" data-step="s4"><em>4</em><div><b>Merge boxes</b><small></small></div><span></span></div>
+    <div class="step" data-step="s5a"><em>5a</em><div><b>Draw solid masks</b><small></small></div><span></span></div>
+    <div class="step" data-step="s5b"><em>5b</em><div><b>Local mask map</b> <i class="stay">stays on device</i><small></small></div><span></span></div>
+    <div class="step" data-step="lfv"><em>✓</em><div><b>Local form validator</b><small></small></div><span></span></div>
+    <div class="step gate" data-step="s6"><em>6</em><div><b>Leak verifier - Safety Gate 1</b><small></small></div><span></span></div>
+
+    <div class="privacy">PRIVACY LINE - only masked image, sanitised text &amp; pass/fail flags cross</div>
+
+    <div class="band b3">03 · IN THE CLOUD</div>
+    <div class="step" data-step="s7"><em>7</em><div><b>Gateway (FastAPI)</b><small></small></div><span></span></div>
+    <div class="step" data-step="s8"><em>8</em><div><b>Vision-language model</b><small></small></div><span></span></div>
+
+    <div class="band b4">04 · BACK ON DEVICE</div>
+    <div class="step gate" data-step="s9"><em>9</em><div><b>Policy check - Safety Gate 2</b><small></small></div><span></span></div>
+    <div class="step gate" data-step="s10"><em>10</em><div><b>Consent + change guard - Gate 3</b><small></small></div><span></span></div>
+    <div class="step" data-step="s11"><em>11</em><div><b>Act - direct submit</b><small></small></div><span></span></div>
+    <div class="step" data-step="s12"><em>12</em><div><b>Low-risk loop</b><small></small></div><span></span></div>
+  </section>
+
+  <section class="card">
+    <div class="row-between"><span class="k">What crosses the Privacy Line</span><span class="bytes" id="bytes"></span></div>
+    <div class="masked-wrap"><img id="masked" alt="Masked screenshot sent to the cloud" class="hidden"><div id="masked-empty" class="empty">No payload yet</div></div>
+    <div class="flags" id="flags"></div>
+    <details><summary>Outgoing JSON payload</summary><pre id="payload"></pre></details>
+    <details><summary>Cloud reply</summary><pre id="reply"></pre></details>
+  </section>
+
+  <section class="card result hidden" id="result"><b id="result-title"></b><p id="result-body"></p></section>
+
+  <section class="card">
+    <span class="k">Log</span>
+    <ol class="log" id="log"></ol>
+  </section>
+
+  <details class="card settings">
+    <summary>Settings</summary>
+    <label>Gateway URL <input id="cfg-gateway"></label>
+    <label>Installation API key <input id="cfg-key" type="password"></label>
+    <label>Max loop iterations <input id="cfg-iter" type="number" min="1" max="50"></label>
+    <label>ISRO workspace origins (one per line)<textarea id="cfg-origins" rows="5"></textarea></label>
+    <label class="inline"><input id="cfg-audit" type="checkbox"> DPDP audit log (enterprise tier)</label>
+    <div class="actions"><button id="cfg-save" class="primary">Save</button><button id="audit-export" class="ghost">Export audit log</button></div>
+  </details>
+
+  <script type="module" src="sidepanel.js"></script>
+</body>
+</html>
